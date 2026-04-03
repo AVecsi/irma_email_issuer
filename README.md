@@ -1,76 +1,41 @@
-
 # irma_email_issuer
 
-Add an e-mail address for use in your [Yivi app](https://github.com/privacybydesign/irmamobile).
+Add an e-mail address for use in your [PQ-Yivi app](https://github.com/AVecsi/irmamobile).
 
-## Running (development)
-The easiest way to run the irma_email_issuer for development purposes is via Docker.
+> This repository is part of the **PQ-Yivi** demo. For the mobile client, see the [PQ-Yivi mobile app](https://github.com/AVecsi/irmamobile).
 
-### Configuration
-Various configuration files, keys and settings need to be in place to be able to build and run the apps.
+## Requirements
 
-1. To generate the required keys for the issuer, run:
+- [Docker](https://www.docker.com/) and Docker Compose
+
+## Setup
+
+### 1. Generate issuer keys
+
 ```bash
 $ utils/keygen.sh ./src/main/resources/sk ./src/main/resources/pk
 ```
 
-2. Create the Java app configuration:
-Copy the file `src/main/resources/config.sample.json` to `src/main/resources/config.json`.
+### 2. Run
 
-#### Redis
-For Redis the following environment variables need to be set:
+You need two things before running:
+- The path to your local [`pq-irmago`](https://github.com/AVecsi/pq-irmago) directory
+- Your machine's local IP address (e.g. `192.168.x.x`) — do **not** use `127.0.0.1` or `0.0.0.0`, as the app won't be able to reach the issuer
 
-|Name | Description |
-|---|---|
-| REDIS_HOST | Host to reach the redis at |
-| REDIS_PORT | Port to reach the redis at |
-| REDIS_MASTER_NAME | The master name for the Redis Sentinel |
-| REDIS_USERNAME | Username for the Redis user |
-| REDIS_PASSWORD | The password for the Redis user |
-| REDIS_KEY_PREFIX | The prefix to use for all redis keys |
-| STORAGE_TYPE | The type of storage used: if you want to enable Redis, set it to "redis" |
-
-### Run
-Use docker-compose up combined with your localhost IP address as environment variable to spin up the containers:
 ```bash
-$ IP=192.168.1.105 docker-compose up
-```
-Note: do not use `127.0.0.1` or `0.0.0.0` as IP addresses as this will result in the app not being able to find the issuer.
-
-By default, docker-compose caches docker images, so on a second run the previous built images will be used. A fresh build can be enforced using the --build flag.
-```bash
-$ IP=192.168.1.105 docker-compose up --build
+$ IRMA_PATH=/path/to/your/pq-irmago IP=your.local.ip docker-compose up
 ```
 
-The configuration should be mounted in the `/config` directory of the container. The `docker-compose.yml` file already contains this configuration.
-
-## Manual
-The Java api and JavaScript frontend can be built and run manually using the following commands:
-
-1. Generate JWT keys for the issuer
+**Example:**
 ```bash
-$ utils/keygen.sh ./src/main/resources/sk ./src/main/resources/pk
+$ IRMA_PATH=/Users/yourname/Documents/pq-irmago IP=192.168.0.100 docker-compose up
 ```
 
-2. Copy the file `src/main/resources/config.sample.json` to `src/main/resources/config.json` and modify it.
-
-3. Build the webapp:
+To force a fresh build (e.g. after pulling changes):
 ```bash
-$ cd webapp && yarn install && yarn build en && cd ../
-```
-If you want to build another language, for example Dutch, change `build en` to `build nl`.
-
-4. Copy the file `webapp/config.example.js` to `webapp/build/assets/config.js` and modify it 
-
-5. Run the following command in the root directory of this project:
-```bash
-$ gradle appRun
+$ IRMA_PATH=/path/to/your/pq-irmago IP=your.local.ip docker-compose up --build
 ```
 
-To open the webapp navigate to http://localhost:8080. The API is accessible via http://localhost:8080/irma_email_issuer/api
-
-## Test
-You can run the tests, defined in `src/test/java/foundation/privacybydesign/email`, using the following command:
-```bash
-$ gradle test
-```
+> **How to find your local IP:**
+> - macOS/Linux: run `ifconfig` or `ip a` and look for your Wi-Fi/Ethernet interface
+> - Windows: run `ipconfig` and look for your IPv4 address
