@@ -4,7 +4,9 @@ name: irma_email_issuer
 services:
   # Irma issuer service
   irmaserver:
-    image: ghcr.io/privacybydesign/irma:v0.14.2
+    build:
+      context: ${IRMA_PATH}  # path to your local irma repo
+      dockerfile: Dockerfile
     working_dir: /irmago
     ports:
       - 8088:8088

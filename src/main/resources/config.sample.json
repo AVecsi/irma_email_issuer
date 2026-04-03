@@ -15,7 +15,7 @@
   "mail_from_address": "noreply@yivi.app",
   "secret_key": "somesecretkey",
   "token_validity": 86400,
-  "private_key_path": "sk.der",
+  "private_key_path": "/config/sk.der",
   "server_name": "irma_email_issuer",
   "human_readable_name": "Privacy by Design Foundation",
   "scheme_manager": "irma-demo",

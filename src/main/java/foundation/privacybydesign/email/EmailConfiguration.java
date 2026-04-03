@@ -31,7 +31,7 @@ public class EmailConfiguration extends BaseConfiguration<EmailConfiguration> {
     private String mail_from_address = "";
     private boolean mail_starttls_required = true;
     private String secret_key = "";
-    private String private_key_path = "sk.der";
+    private String private_key_path = "/config/sk.der";
     private long token_validity = 0;
     private String server_name = "";
     private String human_readable_name = "";

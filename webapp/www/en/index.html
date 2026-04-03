@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Add E-mail</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#ffffff" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="#ffffff" />
+  <link rel="stylesheet" href="assets/style.css" />
+  <script src="assets/config.js" defer></script>
+  <script src="assets/jquery.min.js" defer></script>
+  <script src="assets/yivi.js" defer></script>
+  <script src="assets/messages.js" defer></script>
+  <script src="assets/common.js" defer></script>
+  <script>
+    var language = 'en';
+  </script>
+</head>
+<body>
+<form id="email-form" onsubmit="javascript:return false;">
+  <header></header>
+  <main>
+    <div id="status-bar" class="alert hidden" role="alert">
+      <div class="status-container">
+        <div id="status"></div>
+      </div>
+    </div>
+    <div id="window-email-add" class="hidden">
+      <h1>Adding an e-mail address</h1>
+      <p>On this page you can add an e-mail address to your Yivi app.</p>
+      <p>
+        Do you want to add multiple e-mail addresses? Then perform these steps multiple times.
+      </p>
+      <label for="email">E-mail address</label>
+      <input type="email" id="email" required class="form-control" placeholder="email@example.com" />
+    </div>
+    <div id="window-email-confirm" class="hidden">
+      <h1>Check e-mail address</h1>
+      <p>
+        Please check your e-mail address again for correctness.
+        Choose 'Back' to correct your e-mail address.
+      </p>
+      <label class="label-confirm" for="email-confirm">E-mail address</label>
+      <div class="input-confirm email"><b id="email-confirm"></b></div>
+    </div>
+    <div id="window-email-sent" class="hidden">
+      <h1>Adding an e-mail address</h1>
+      <p>It may take a couple of minutes for the e-mail to arrive.
+        If it does not, check your spam folder too. Please 
+        complete the following steps:</p>
+      <ol>
+        <li>Open your e-mail application.</li>
+        <li>Open the e-mail message sent by Yivi.</li>
+        <li>Open the link within the e-mail message.</li>
+        <li>Go through the steps that are offered.</li>
+      </ol>
+    </div>
+    <div id="window-email-verify" class="hidden">
+      <h1>Adding an e-mail address</h1>
+      <!-- Maybe we should put here some explanation of
+      what's going on behind the scenes -->
+    </div>
+  </main>
+  <footer>
+    <div class="actions">
+      <a id="back-button">
+        Back
+      </a>
+      <button id="submit-button" type="submit"></button>
+    </div>
+  </footer>
+</form>
