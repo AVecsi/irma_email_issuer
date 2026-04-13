@@ -1,41 +1,40 @@
 {
-    "verify_email_subject": {
-      "en": "Add e-mail address to your Yivi app",
-      "nl": "Voeg e-mailadres toe aan je Yivi-app"
-    },
-    "server_url": {
-      "en": "http://localhost:8080/en/",
-      "nl": "http://localhost:8080/nl/"
-    },
-    "mail_host": "mailhog.localhost",
-    "mail_port": 1025,
-    "mail_user": "",
-    "mail_password": "",
-    "mail_starttls_required": false,
-    "mail_from_address": "noreply@yivi.app",
-    "secret_key": "somesecretkey",
-    "token_validity": 86400,
-    "private_key_path": "/config/sk.der",
-    "server_name": "irma_email_issuer",
-    "human_readable_name": "Privacy by Design Foundation",
-    "scheme_manager": "irma-demo",
-    "email_issuer": "sidn-pbdf",
-    "email_credential": "email",
-    "email_attribute": "email",
-    "domain_attribute": "domain",
-    "clients" : {
-      "customclient": {
-        "return_url": "",
-        "reply_to_email": "",
-        "name": "A custom client",
-        "email_files": {
-          "nl": "customclient-nl.html",
-          "en": "customclient-en.html"
-        },
-        "email_subject": {
-          "en": "Add e-mail address to your Yivi app",
-          "nl": "Voeg e-mailadres toe aan je Yivi-app"
-        }
-    }}
-  }
-  
+  "verify_email_subject": {
+    "en": "Add e-mail address to your Yivi app",
+    "nl": "Voeg e-mailadres toe aan je Yivi-app"
+  },
+  "server_url": {
+    "en": "http://localhost:8080/en/",
+    "nl": "http://localhost:8080/nl/"
+  },
+  "mail_host": "mailhog.localhost",
+  "mail_port": 1025,
+  "mail_user": "",
+  "mail_password": "",
+  "mail_starttls_required": false,
+  "mail_from_address": "noreply@yivi.app",
+  "secret_key": "somesecretkey",
+  "token_validity": 86400,
+  "private_key_path": "/config/sk.der",
+  "server_name": "irma_email_issuer",
+  "human_readable_name": "Privacy by Design Foundation",
+  "scheme_manager": "irma-demo",
+  "email_issuer": "sidn-pbdf",
+  "email_credential": "email",
+  "email_attribute": "email",
+  "domain_attribute": "domain",
+  "clients" : {
+    "customclient": {
+      "return_url": "",
+      "reply_to_email": "",
+      "name": "A custom client",
+      "email_files": {
+        "nl": "customclient-nl.html",
+        "en": "customclient-en.html"
+      },
+      "email_subject": {
+        "en": "Add e-mail address to your Yivi app",
+        "nl": "Voeg e-mailadres toe aan je Yivi-app"
+      }
+  }}
+}
